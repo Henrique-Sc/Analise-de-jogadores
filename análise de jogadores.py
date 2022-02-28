@@ -1,7 +1,4 @@
 # Cores
-from tkinter import Widget
-
-
 r = '\033[m'
 IR = '\033[38;5;9m'
 IB = '\033[38;5;12m'
