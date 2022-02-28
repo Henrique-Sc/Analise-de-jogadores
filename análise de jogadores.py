@@ -74,6 +74,7 @@ while True:
     title = len(str(f'\n-- Levantamento do(a) jogador(a) {jogadores[levant]["nome"]} --'))
     print(f'\n-- Levantamento do(a) jogador(a) {jogadores[levant]["nome"]} --')
     
+    # Mostrando o levantamento
     for i, gols in enumerate(jogadores[levant]['gols']):
         if gols == 0:
             print(f'\t> Não fez nenhum gols na {i + 1}ª partida')
