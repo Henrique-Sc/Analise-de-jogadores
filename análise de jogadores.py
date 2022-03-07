@@ -9,12 +9,13 @@ cont = 0
 while True:
     print('-' * 38)  # Linha para Design
     jogadores.append({'nome': str(input('Nome do(a) jogador(a): ')).strip().title(), 'gols': list()})
-    # noinspection PyTypeChecker
     
+    # noinspection PyTypeChecker
     jogadores[cont]['partidas'] = int(input(f'Quantas partidas {jogadores[cont]["nome"]} jogou? '))
     if jogadores[cont]['partidas'] == 0:
         jogadores[cont]['gols'].append(0)
     print()
+    
     # noinspection PyTypeChecker
     for c in range(jogadores[cont]['partidas']):
         jogadores[cont]['gols'].append(int(input(f'Quantos gols na {c + 1}ª partida? ')))
@@ -57,13 +58,15 @@ print('\n' + '=' * title)
 # Dados mais detalhados
 print('\n~Digite o código do jogador')
 # While para a inserção dos dados
+
 while True:
     levant = int(input('\nMostrar dados de qual jogador(a)? (999 para parar) ').strip())
 
     # Verificando o valor inserido, para trata-lo corretamente
     if levant == 999:
         break
-    elif levant >= len(jogadores or levant < 0):
+    
+    elif levant >= len(jogadores) or levant < 0:
         print('')
         while True:
             levant = int(input(f'{IR}Valor incorreto!{r} Digite corretamente o número do(a) jogador(a): ').strip())
@@ -75,12 +78,15 @@ while True:
     print(f'\n-- Levantamento do(a) jogador(a) {jogadores[levant]["nome"]} --')
     
     # Mostrando o levantamento
-    for i, gols in enumerate(jogadores[levant]['gols']):
-        if gols == 0:
-            print(f'\t> Não fez nenhum gols na {i + 1}ª partida')
-        elif gols == 1:
-            print(f'\t> Fez {gols} gol na {i + 1}ª partida')
-        elif gols > 1:
-            print(f'\t> Fez {gols} gols na {i + 1}ª partida')
-
+    if jogadores[levant]['partidas'] != 0:
+        for i, gols in enumerate(jogadores[levant]['gols']): 
+            if gols == 0:
+                print(f'\t> Não fez nenhum gol na {i + 1}ª partida')
+            elif gols == 1:
+                print(f'\t> Fez {gols} gol na {i + 1}ª partida')
+            elif gols > 1:
+                print(f'\t> Fez {gols} gols na {i + 1}ª partida')
+    else:
+        print('\t> Não jogou nenhuma partida')
+        
 print(f'\n{IB}<- Programa finalizado ->{r}')
